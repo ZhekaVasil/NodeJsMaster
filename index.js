@@ -1,13 +1,29 @@
-const server = require('./lib/server');
-const workers = require('./lib/workers');
+/*
+ * Primary file for API
+ *
+ */
 
-const app = {};
+// Dependencies
+var server = require('./lib/server');
+var workers = require('./lib/workers');
 
-app.init = () => {
+// Declare the app
+var app = {};
+
+// Init function
+app.init = function(){
+
+  // Start the server
   server.init();
+
+  // Start the workers
   workers.init();
+
 };
 
+// Self executing
 app.init();
 
+
+// Export the app
 module.exports = app;
